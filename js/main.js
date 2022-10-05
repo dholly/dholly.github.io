@@ -123,7 +123,7 @@ $_ready(() => {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-            $(".inventory-screen, .bgwindow").toggle();
+            $(".inventory-screen, .bgwindow").toggleClass('hidden');
         });
         $(".inventory-screen").click(function (event) {
             event.stopImmediatePropagation();
@@ -133,21 +133,27 @@ $_ready(() => {
 
 
         });
+
         $(".open-menu").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-            $(".quick-menu__wrapper").toggle();
+            $(".quick-menu__wrapper").toggleClass('hidden');
+
+        });
+        $(document).on("click", function(e) {
+            if ($(e.target).is(".quick-menu__wrapper") === false) {
+                $(".quick-menu__wrapper").removeClass("hidden");
+            }
         });
         $(".open-inventory").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-            $(".inventory-screen, .bgwindow").toggle();
-            $('.inventory-screen').html(monogatari.storage.player.name.map(n => `id: ${n.id}`).join('<br>'))
-            $(".inventory-screen").html('<div>');
+            $(".inventory-screen, .bgwindow").toggleClass('hidden');
         });
         monogatari.component('main-menu').removeButton('Help');
+
 
 
 
