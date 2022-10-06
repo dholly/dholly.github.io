@@ -136,7 +136,7 @@ monogatari.script({
         'Start': [
 
 
-            'k hello!',
+            'k Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, molestias, perferendis! Eligendi expedita reprehenderit similique? Autem blanditiis cumque dolor dolore dolores enim esse eum excepturi facilis fugiat iure, maxime natus nemo non nulla obcaecati, quisquam quo ut. Autem deleniti dolorum expedita impedit nulla porro provident quibusdam, recusandae unde voluptates! Ab adipisci aliquam at consectetur dolor doloremque dolores eos, eum expedita facere harum id iure magnam maxime nihil nostrum perspiciatis placeat quo reiciendis repellat similique soluta suscipit tempora! Commodi eligendi odio quo! Adipisci asperiores cum, debitis dolores ex harum, inventore natus officiis possimus quaerat quod repellendus repudiandae saepe sapiente veritatis vero?',
             'k:normal Noxus!',
             'k Katarina!',
             'jump other'
