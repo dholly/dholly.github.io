@@ -42,7 +42,7 @@ monogatari.translation ('Русский', {
 });
 // Define the notifications used in the game
 monogatari.action('notification').notifications({
-    'Erection': {
+    'ER': {
         title: 'У вас набухло в штанах',
         body: 'Вы возбудились',
         icon: ''
@@ -131,7 +131,33 @@ monogatari.characters({
 
 monogatari.script({
     'English': {
+        'SplashVideo': [
 
+            'centered Please confirm you are 18 years old or older',
+            {
+                'Choice': {
+                    '18age': {
+                        'Text': 'Yeah! I am!',
+                        'Do': 'jump allowed',
+                    },
+                    'not18age': {
+                        'Text': 'If be a honest, im not...',
+                        'Do': 'jump notallowed',
+
+                    }
+                }
+            },
+
+        ],
+        'allowed': [
+            'show scene blankdark',
+            'show video video modal close',
+            'centered  ',
+            'end',
+        ],
+        'notallowed': [
+            'centered This game contains adult content, thats illegal to show that stuff to people under 18'
+        ],
 
         'Start': [
 
@@ -189,7 +215,7 @@ monogatari.script({
             '...',
             'ля какая!',
             'hide character k normal with bounceOutRight',
-            'show notification Erection',
+            'show notification Er',
             'k:normal привет!',
             'k:normal меня зовут большие сисяндры',
             {
