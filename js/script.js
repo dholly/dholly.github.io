@@ -31,14 +31,16 @@ monogatari.configuration ('credits', {
 
 });
 monogatari.translation ('English', {
-    'Stats': 'Inventory'
+    'Stats': 'Inventory',
+    'menuTitle' : 'Menu'
 });
 monogatari.translation ('English', {
     'Credits': 'About'
 });
 
 monogatari.translation ('Русский', {
-    'Stats': 'Инвентарь'
+    'Stats': 'Инвентарь',
+    'menuTitle' :'Меню'
 });
 // Define the notifications used in the game
 monogatari.action('notification').notifications({
@@ -215,7 +217,7 @@ monogatari.script({
             '...',
             'ля какая!',
             'hide character k normal with bounceOutRight',
-            'show notification Er',
+            'show notification ER',
             'k:normal привет!',
             'k:normal меня зовут большие сисяндры',
             {

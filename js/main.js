@@ -36,16 +36,17 @@ $_ready(() => {
         // 3. Inside the init function:
 
         monogatari.component("main-screen").template(() => `
-<div class="game-title animated fadeInRight"></div>
-                       <div class="main-menu-support__wrapper animated fadeInLeft"> <div class="main-menu-support">
-                                           <div class="patreon">
+<div class="game-title animated slideInDown"></div>
+                       <div class="main-menu-support__wrapper animated slideInUp"> <div class="main-menu-support">
+                                           <a href="https://www.patreon.com/RaccoonGang" target=”_blank” class="patreon" >
+                                           
                                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="55"
                                                     viewBox="7.846 7.798 47.363 47.34">
                                                    <path fill="#273648"
                                                          d="M7.846 30.818c0-11.027 8.96-21.366 20.775-22.843 8.468-.985 14.868 2.265 19.298 6.498 4.135 3.938 6.598 8.96 7.188 14.868.492 5.907-.787 11.027-4.233 15.852-3.446 4.727-10.24 9.945-18.708 9.945h-11.52V32.394c.099-5.022 1.772-9.354 7.877-11.422 5.317-1.575 11.52 1.378 13.391 6.991 1.969 6.006-.887 10.043-4.234 12.505s-8.566 2.462-12.012.099v7.778c2.265 1.083 5.12 1.378 7.188 1.28 7.482-1.084 13.292-5.317 15.754-11.717 2.561-6.794.787-14.671-4.529-19.594-6.4-5.219-13.391-6.499-20.874-2.855-5.218 2.659-8.861 8.074-9.748 13.981v25.699H7.945l-.099-24.321z"/>
                                                </svg>
-                                           </div>
-                                           <div class="f95">
+                                           </a>
+                                           <a href="https://www.patreon.com/RaccoonGang" target=”_blank” class="f95">
                                                <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="55"
                                                     viewBox="0, 0, 400,69.36860068259385">
@@ -61,8 +62,8 @@ $_ready(() => {
                                                        <path id="path4" d="" stroke="none" fill="#273648" fill-rule="evenodd"></path>
                                                    </g>
                                                </svg>
-                                           </div>
-                                           <div>
+                                           </a>
+                                           <a href="https://boosty.to/raccongang" target=”_blank”>
                                                <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="55"
                                                     viewBox="0, 0, 400,481.2213740458015">
@@ -75,7 +76,7 @@ $_ready(() => {
                                                              stroke="none" fill="#273648" fill-rule="evenodd"></path>
                                                    </g>
                                                </svg>
-                                           </div>
+                                           </a>
                                        </div></div>
         `);
         class InventoryScreen extends Monogatari.Component {
@@ -110,7 +111,7 @@ $_ready(() => {
             <button class="top left" data-action="back"><span class="fas fa-arrow-left"></span></button>
             <h2 data-string="Statistics">Statistics</h2>
             <div class="row row--spaced" data-content="help">
-                <p>Your Content goes here!</p>
+                <p>----</p>
             </div>
         `;
             }
