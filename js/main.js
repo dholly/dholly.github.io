@@ -140,18 +140,22 @@ $_ready(() => {
             event.stopPropagation();
             event.preventDefault();
             $(".quick-menu__wrapper").toggleClass('hidden');
-
+$(this).toggleClass('open');
         });
-        $(document).on("click", function(e) {
+        $(document).on("mouseup", function(e) {
             if ($(e.target).is(".quick-menu__wrapper") === false) {
                 $(".quick-menu__wrapper").removeClass("hidden");
+                $(".open-menu").removeClass("open");
+                $(".open-inventory").removeClass("open");
             }
         });
+
         $(".open-inventory").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
             $(".inventory-screen, .bgwindow").toggleClass('hidden');
+            $(this).toggleClass('open');
         });
         monogatari.component('main-menu').removeButton('Help');
 

@@ -1061,6 +1061,7 @@ choice-container button {
 
   &.hidden {
     display: flex !important;
+
   }
 }
 
@@ -1157,7 +1158,13 @@ quick-menu.transparent button:focus, quick-menu.transparent button:hover {
       background-repeat: no-repeat;
       background-position: center;
       transition: 120ms ease-in-out;
-
+&.open{
+  background: url('../assets/menu/homeicon-w.png');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 120ms ease-in-out;
+}
       &:hover {
         background: url('../assets/menu/homeicon-w.png');
         background-size: 90%;
@@ -1190,7 +1197,13 @@ quick-menu.transparent button:focus, quick-menu.transparent button:hover {
         top: -7px;
         transform: translate(-50%, 0%);
       }
-
+      &.open{
+        background: url('../assets/menu/invicon-w.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: 120ms ease-in-out;
+      }
       &:hover {
         background: url('../assets/menu/invicon-w.png');
         background-size: contain;

@@ -806,6 +806,12 @@ quick-menu.transparent button:focus, quick-menu.transparent button:hover {
     background-repeat: no-repeat;
     background-position: center;
     transition: 120ms ease-in-out; }
+    .side-menu__wrap .open-menu.open {
+      background: url("../assets/menu/homeicon-w.png");
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: 120ms ease-in-out; }
     .side-menu__wrap .open-menu:hover {
       background: url("../assets/menu/homeicon-w.png");
       background-size: 90%;
@@ -832,6 +838,12 @@ quick-menu.transparent button:focus, quick-menu.transparent button:hover {
       left: 50%;
       top: -7px;
       transform: translate(-50%, 0%); }
+    .side-menu__wrap .open-inventory.open {
+      background: url("../assets/menu/invicon-w.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: 120ms ease-in-out; }
     .side-menu__wrap .open-inventory:hover {
       background: url("../assets/menu/invicon-w.png");
       background-size: contain;
