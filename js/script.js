@@ -143,7 +143,7 @@ monogatari.script({
                         'Do': 'jump allowed',
                     },
                     'not18age': {
-                        'Text': 'If be a honest, im not...',
+                        'Text': 'To be a honest, im not...',
                         'Do': 'jump notallowed',
 
                     }
