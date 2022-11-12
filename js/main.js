@@ -31,9 +31,168 @@ const {$_ready, $_} = Monogatari;
 $_ready(() => {
     // 2. Inside the $_ready function:
 
+    class Corrupted extends Monogatari.Component {
+        constructor (...args) {
+            super(...args);
+            this.state = {
+                Corrupted: 0
+            };
+        }
+        static onLoad () {
+            const { Corrupted } = monogatari.storage('stats');
+            this.instances ((element) => {
+                element.setState({ Corrupted });
+            });
+            return Promise.resolve();
+        }
+        change (amount) {
+            const beforechange = this.engine.storage('stats').Corrupted;
+            const Corrupted = beforechange + amount;
+            this.engine.storage({ stats: { Corrupted } });
+            this.setState({ Corrupted });
+        }
+        onStateUpdate(property, oldValue, newValue) {
+            if (property === 'Corrupted') {
+                this.content("Corrupted").text(`${newValue}`);
+            }
+            return Promise.resolve();
+        }
+        render () {
+            const { Corrupted } = this.state;
+            return `
+            <div>                
+                <span data-content="Corrupted">${Corrupted}</span>
+            </div>          
+            
+        `;
+        }
+    }
+
+    Corrupted.tag = 'corrupted-menu';
+    monogatari.registerComponent(Corrupted);
+
+    class Arousal extends Monogatari.Component {
+        constructor (...args) {
+            super(...args);
+            this.state = {
+                Arousal: 0
+            };
+        }
+        static onLoad () {
+            const { Arousal } = monogatari.storage('stats');
+            this.instances ((element) => {
+                element.setState({ Arousal });
+            });
+            return Promise.resolve();
+        }
+        change (amount) {
+            const beforechange = this.engine.storage('stats').Arousal;
+            const Arousal = beforechange + amount;
+            this.engine.storage({ stats: { Arousal } });
+            this.setState({ Arousal });
+        }
+        onStateUpdate(property, oldValue, newValue) {
+            if (property === 'Arousal') {
+                this.content("Arousal").text(`${newValue}`);
+            }
+            return Promise.resolve();
+        }
+        render () {
+            const { Arousal } = this.state;
+            return `
+            <div>                
+                <span data-content="Arousal">${Arousal}</span>
+            </div>          
+            
+        `;
+        }
+    }
+
+    Arousal.tag = 'arousal-menu';
+    monogatari.registerComponent(Arousal);
+
+    class Portrait extends Monogatari.Component {
+        constructor (...args) {
+            super(...args);
+            this.state = {
+                Portrait: 'portrait-menu'
+            };
+        }
+        static onLoad () {
+            const { Portrait } = monogatari.storage('stats');
+            this.instances ((element) => {
+                element.setState({ Portrait });
+            });
+            return Promise.resolve();
+        }
+        change (on) {
+            this.engine.storage('stats').Portrait = on;
+            const Portrait = on;
+            this.engine.storage({ stats: { Portrait } });
+            this.setState({ Portrait });
+        }
+        onStateUpdate(property, oldValue, newValue) {
+            if (property === 'Portrait') {
+                this.content("Portrait").addClass(`${newValue}`);
+            }
+            return Promise.resolve();
+        }
+        render () {
+            const { Portrait } = this.state;
+            return `
+        
+             <div data-content="Portrait" class="${Portrait}"></div>
+        `;
+        }
+
+    }
+
+    Portrait.tag = 'portrait-menu';
+    monogatari.registerComponent(Portrait);
+
+    class Quests extends Monogatari.Component {
+        constructor (...args) {
+            super(...args);
+            this.state = {
+                CurrentQuest: 'Wake up...'
+            };
+        }
+        static onLoad () {
+            const { CurrentQuest } = monogatari.storage('quests');
+            this.instances ((element) => {
+                element.setState({ CurrentQuest });
+            });
+            return Promise.resolve();
+        }
+        change (on) {
+            this.engine.storage('quests').CurrentQuest = on;
+            const CurrentQuest = on;
+            this.engine.storage({ quests: { CurrentQuest } });
+            this.setState({ CurrentQuest });
+        }
+        onStateUpdate(property, oldValue, newValue) {
+            if (property === 'CurrentQuest') {
+                this.content("CurrentQuest").text(`${newValue}`);
+            }
+            return Promise.resolve();
+        }
+        render () {
+            const { CurrentQuest } = this.state;
+            return `
+            <div>                
+                <span data-content="CurrentQuest">${CurrentQuest}</span>
+            </div>          
+            
+        `;
+        }
+    }
+
+    Quests.tag = 'quests-menu';
+    monogatari.registerComponent(Quests);
 
     monogatari.init('#monogatari').then(() => {
         // 3. Inside the init function:
+
 
         monogatari.component("main-screen").template(() => `
 <div class="game-title animated slideInDown"></div>
@@ -79,88 +238,107 @@ $_ready(() => {
                                            </a>
                                        </div></div>
         `);
-        class InventoryScreen extends Monogatari.Component {
 
-            static setup () {
-                this.engine.translation('English', {
-                    Inventory: 'Inventory'
-                });
-                this.engine.translation('Russian', {
-                    Inventory: 'Инвентарь'
-                });
-                return Promise.resolve ();
-            }
-
-            static bind () {
-                this.engine.component ('main-menu').addButtonAfter ('Load', {
-                    string: 'Inventory',
-                    data: {
-                        action: 'open-screen',
-                        open: 'Inventory'
-                    }
-                });
-                return Promise.resolve ();
-            }
-
-            constructor (...args) {
-                super(...args);
-            }
-
-            render () {
-                return `
-            <button class="top left" data-action="back"><span class="fas fa-arrow-left"></span></button>
-            <h2 data-string="Statistics">Statistics</h2>
-            <div class="row row--spaced" data-content="help">
-                <p>----</p>
-            </div>
-        `;
-            }
-        }
-
-        InventoryScreen.tag = 'inventory-screen';
-        monogatari.registerComponent(InventoryScreen);
 
         $(".bgwindow").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-            $(".inventory-screen, .bgwindow").toggleClass('hidden');
+            $(".inventory-screen, .bgwindow, .quick-menu__wrapper").removeClass('hidden');
+            $(".open-inventory").removeClass('open');
+            $(".open-menu").removeClass('open');
         });
-        $(".inventory-screen").click(function (event) {
+        $(".bgwindow-inv").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-
-
-
+            $(this).removeClass('hidden')
+            $(".inventory-screen, .bgwindow-inv, .quick-menu__wrapper").removeClass('hidden');
+            $(".open-inventory").removeClass('open');
+            $(".open-menu").removeClass('open');
+            console.log(monogatari.storage('stats'))
         });
+
 
         $(".open-menu").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-            $(".quick-menu__wrapper").toggleClass('hidden');
-$(this).toggleClass('open');
-        });
-        $(document).on("mouseup", function(e) {
-            if ($(e.target).is(".quick-menu__wrapper") === false) {
-                $(".quick-menu__wrapper").removeClass("hidden");
-                $(".open-menu").removeClass("open");
-                $(".open-inventory").removeClass("open");
+
+            if ($(".quick-menu__wrapper, .bgwindow").hasClass('hidden')) {
+                $(".quick-menu__wrapper, .bgwindow").removeClass('hidden');
+            } else {
+                $(".quick-menu__wrapper, .bgwindow").addClass('hidden');
             }
+
+            if ($(this).hasClass('open')) {
+                $(this).removeClass('open')
+            } else {
+                $(this).addClass('open')
+            }
+            $(".open-inventory").removeClass("open");
+            $('.inventory-screen, .bgwindow-inv').removeClass('hidden');
+        });
+        $(".inventory-screen").click(function (event) {
+            //event.stopImmediatePropagation();
+            event.stopPropagation();
+            event.preventDefault();
         });
 
         $(".open-inventory").click(function (event) {
             event.stopImmediatePropagation();
             event.stopPropagation();
             event.preventDefault();
-            $(".inventory-screen, .bgwindow").toggleClass('hidden');
-            $(this).toggleClass('open');
+
+            if ($(".inventory-screen, .bgwindow-inv").hasClass('hidden')) {
+                $(".inventory-screen, .bgwindow-inv").removeClass('hidden');
+            } else {
+                $(".inventory-screen, .bgwindow-inv").addClass('hidden');
+            }
+
+            if ($(this).hasClass('open')) {
+                $(this).removeClass('open')
+            } else {
+                $(this).addClass('open')
+            }
+            $(".quick-menu__wrapper, .bgwindow").removeClass("hidden");
+            $(".open-menu").removeClass("open");
         });
+        $(".quick-menu__wrapper").mouseup(function (event) {
+            event.stopImmediatePropagation();
+            event.stopPropagation();
+            event.preventDefault();
+            $(".inventory-screen, .bgwindow, .quick-menu__wrapper").removeClass('hidden');
+            $(".open-inventory").removeClass('open');
+            $(".open-menu").removeClass('open');
+
+        });
+        $(".stats-tab").click(function (event) {
+            event.stopImmediatePropagation();
+            event.stopPropagation();
+            event.preventDefault();
+            $('.stats-tab, .stats-wrap').addClass('active').hover()
+            $(".quest-tab, .quest-wrap").removeClass('active')
+            $(".inventory-tab, .inv-wrap").removeClass('active')
+        });
+        $(".quest-tab").click(function (event) {
+            event.stopImmediatePropagation();
+            event.stopPropagation();
+            event.preventDefault();
+            $('.quest-tab, .quest-wrap').addClass('active').hover()
+            $(".stats-tab, .stats-wrap").removeClass('active')
+            $(".inventory-tab, .inv-wrap").removeClass('active')
+        });
+        $(".inventory-tab").click(function (event) {
+            event.stopImmediatePropagation();
+            event.stopPropagation();
+            event.preventDefault();
+            $('.inventory-tab, .inv-wrap').addClass('active').hover()
+            $(".quest-tab, .quest-wrap").removeClass('active')
+            $(".stats-tab, .stats-wrap").removeClass('active')
+        });
+
         monogatari.component('main-menu').removeButton('Help');
-
-
-
 
 
     });

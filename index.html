@@ -107,62 +107,98 @@
 
 <div id="monogatari">
 
-        <visual-novel>
-            <language-selection-screen></language-selection-screen>
-            <loading-screen></loading-screen>
-            <main-screen>
+    <visual-novel>
+        <language-selection-screen></language-selection-screen>
+        <loading-screen></loading-screen>
+        <main-screen>
 
-                <!-- <div class="katarina-old animated slideInRight"></div>
-                <div class="katarina-new animated slideInLeft"></div> -->
-                <div class="main-menu__wrapper animated zoomIn">
+            <!-- <div class="katarina-old animated slideInRight"></div>
+            <div class="katarina-new animated slideInLeft"></div> -->
+            <div class="main-menu__wrapper animated zoomIn">
 
-                    <main-menu>
-                        <!--   <h3 data-string="menuTitle" class="main-menu__title"></h3>-->
-                        <div class="main-menu-border">
-                            <div class="corners">
-                                <div class="top left"></div>
-                                <div class="top right"></div>
-                                <div class="bottom right "></div>
-                                <div class="bottom left"></div>
-                            </div>
+                <main-menu>
+                    <!--   <h3 data-string="menuTitle" class="main-menu__title"></h3>-->
+                    <div class="main-menu-border">
+                        <div class="corners">
+                            <div class="top left"></div>
+                            <div class="top right"></div>
+                            <div class="bottom right "></div>
+                            <div class="bottom left"></div>
                         </div>
+                    </div>
 
-                    </main-menu>
-                </div>
+                </main-menu>
 
-            </main-screen>
-            <game-screen>
-                <dialog-log></dialog-log>
-                <div class="text-box__wrapper">
+            </div>
 
-                    <text-box>
+        </main-screen>
+        <game-screen>
+            <dialog-log></dialog-log>
+            <div class="text-box__wrapper">
 
-                    </text-box>
+                <text-box>
 
-                </div>
-                <div class="quick-menu__wrapper animated fadeInDown">
-                    <quick-menu>
-                    </quick-menu>
-                </div>
-                <div class="side-menu__wrap">
+                </text-box>
+
+            </div>
+            <div class="quick-menu__wrapper animated fadeInDown">
+                <quick-menu>
+                </quick-menu>
+            </div>
+            <div class="side-menu__wrap">
                 <div class="open-menu"></div>
                 <div class="open-inventory"></div>
+            </div>
+            <div class="inventory-screen animated fadeIn">
+                <div class="stats-top">
+                    <button class="stats-tab"><span>Statistics</span></button>
+                    <button class="quest-tab"><span>Active quests</span></button>
+                    <button class="inventory-tab"><span>Inventory</span></button>
                 </div>
-                <div class="inventory-screen animated fadeIn"></div>
-                <div class="bgwindow animated fadeIn">
+                <div class="stats-bottom">
+                    <div class="stats-wrap active">
+                        <p> Current Corruption ->
+                            <corrupted-menu></corrupted-menu>
+                        </p>
+                        <p>Current Arousal ->
+                            <arousal-menu></arousal-menu>
+                        </p>
+
+                    </div>
+                    <div class="quest-wrap">
+                        Current quest ->
+                        <quests-menu></quests-menu>
+                    </div>
+
+                    <div class="inv-wrap">
+                        <P>вещь1</P>
+                        <P>вещь 2</P>
+                        <P>вещь 3</P>
+                    </div>
+
+                    <div>
+                        <portrait-menu></portrait-menu>
+                    </div>
 
                 </div>
-            </game-screen>
-            <gallery-screen></gallery-screen>
-            <credits-screen></credits-screen>
-            <load-screen></load-screen>
-            <save-screen></save-screen>
+            </div>
+            <div class="bgwindow animated fadeIn">
 
-            <settings-screen></settings-screen>
+            </div>
+            <div class="bgwindow-inv animated fadeIn"></div>
+        </game-screen>
+        <gallery-screen></gallery-screen>
+        <credits-screen></credits-screen>
+        <load-screen></load-screen>
+        <save-screen></save-screen>
 
-            <help-screen></help-screen>
-            <statistics-screen></statistics-screen>
-        </visual-novel>
+        <settings-screen></settings-screen>
+
+        <help-screen></help-screen>
+        <statistics-screen></statistics-screen>
+
+
+    </visual-novel>
 
 </div>
 </body>

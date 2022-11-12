@@ -38,7 +38,7 @@ monogatari.settings({
 	'LanguageSelectionScreen': true,
 
 	// Music for the Main Menu.
-	'MainScreenMusic': '',
+	'MainScreenMusic': 'alena',
 
 	// Prefix for the Save Slots in Local Storage.
 	'SaveLabel': 'Save',
@@ -115,7 +115,7 @@ monogatari.settings({
 	// Name of the Splash Screen Label. If a name is given and a label with that
 	// name exists on the game's script, it will be used to show a splash screen
 	// right after the loading screen.
-	'SplashScreenLabel': 'SplashVideo',
+	'SplashScreenLabel': '',
 
 	// Define what storage engine should be used to save the game data. *
 	// Adapters Available:
