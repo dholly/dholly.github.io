@@ -990,7 +990,7 @@ quick-menu.transparent button:focus, quick-menu.transparent button:hover {
   .portrait-menu.v2 {
     width: 100%;
     display: flex;
-    background: url("../assets/characters/portrait/naked.jpg");
+    background: url("../assets/characters/portrait/naked.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; }

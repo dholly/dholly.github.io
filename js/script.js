@@ -94,7 +94,7 @@ monogatari.assets('scenes', {
     'logo': 'p2.gif',
     'blank': 'blank.png',
     'blankdark': 'bg-blank.png',
-    'camp': 'camp.jpg',
+    'camp': 'camp.png',
 
 });
 
@@ -144,7 +144,7 @@ monogatari.characters({
             smile: 'g-smile.png',
             dull: 'g-dull.png',
         }
-    },п
+    },
     's': {
         name: 'Soldier',
         sprites: {
@@ -198,7 +198,12 @@ monogatari.script({
         ],
 
         'Start': [
-            /*
+
+
+
+            'The birds are chirping far too happily and early for Katarina’s tastes. A shame they are too much a bother to slay.',
+            'show scene camp with fadeIn',
+            'show character k dull at left with fadeInUp',
             function () {
                 document.querySelector('corrupted-menu').change(50)
             },
@@ -212,10 +217,6 @@ monogatari.script({
                 document.querySelector('portrait-menu').change('v2')
             },
 
-             */
-            'The birds are chirping far too happily and early for Katarina’s tastes. A shame they are too much a bother to slay.',
-            'show scene camp with fadeIn',
-            'show character k dull at left with fadeInUp',
             'With a breath she jumps to her feet, still half asleep as she rubs her eyes, the camp soldiers starting to stir with the usual shouts and shuffle to attention with subsequent thrashings by their officers',
             'Then the yells outside change, followed by a different noise… that of metal clinking.  Material hits the ground. ',
             'After a moment, more yells and the telling sound of armor clinking in the air.',
